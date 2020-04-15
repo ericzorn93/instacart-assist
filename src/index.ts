@@ -1,7 +1,9 @@
+import { PrimaryUtils } from 'utils/primary.utils';
+
 export const sum = (a: number, b: number) => {
-  if ('development' === process.env.NODE_ENV) {
+  if (PrimaryUtils.isDevelopment()) {
     console.log('boop');
-    console.log('food');
   }
+
   return a + b;
 };
