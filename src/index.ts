@@ -1,1 +1,1 @@
-export * from './requests/instacart.api.request';
+export { default as InstacartAssist } from './instacart.assist';

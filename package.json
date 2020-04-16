@@ -34,12 +34,14 @@
   "module": "dist/instacart-assist.esm.js",
   "devDependencies": {
     "@types/axios": "^0.14.0",
+    "@types/cookie": "^0.3.3",
     "husky": "^4.2.5",
     "tsdx": "^0.13.2",
     "tslib": "^1.11.1",
     "typescript": "^3.8.3"
   },
   "dependencies": {
-    "axios": "^0.19.2"
+    "axios": "^0.19.2",
+    "cookie": "^0.4.0"
   }
 }
