@@ -1,4 +1,4 @@
-import axios, { AxiosInstance, AxiosResponse } from 'axios';
+import axios, { AxiosInstance } from 'axios';
 import HTTPMethod from 'http-method-enum';
 
 import { InstacartAuthApi } from './instacartAuth.api.request';
@@ -28,7 +28,7 @@ export class InstacartAPIRequest {
    * Recieves an array of all available stores, based on the user's account location
    * @returns {AxiosResponse<any>} List of all Stores
    */
-  public async getAllStoresInArea(): Promise<AxiosResponse<any>> {
+  public async getAllPickupLocations(): Promise<any> {
     let storeData: any;
 
     try {
@@ -59,7 +59,7 @@ export class InstacartAPIRequest {
     path: string,
     method: HTTPMethod,
     requestBody?: any
-  ): Promise<AxiosResponse<any>> {
+  ): Promise<any> {
     let responseData;
 
     try {

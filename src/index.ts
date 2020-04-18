@@ -1,1 +1,1 @@
-export { default as InstacartAssist } from './instacart.assist';
+export { default as InstacartAssistV3 } from './instacart_v3/instacart.assist';
