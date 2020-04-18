@@ -2,13 +2,11 @@ import axios, { AxiosInstance } from 'axios';
 import HTTPMethod from 'http-method-enum';
 
 import { InstacartAuthApi } from './instacartAuth.api.request';
+import { InstacartV3Urls } from '../enums/instacartV3.url.enum';
 
 export class InstacartAPIRequest {
   private readonly instacartRequest: AxiosInstance;
   private readonly instacartAuthApi: InstacartAuthApi;
-
-  // URLS
-  private readonly pickUplocationV3: string = '/pickup_locations';
 
   constructor(instacartAuthApi: InstacartAuthApi) {
     this.instacartAuthApi = instacartAuthApi;
@@ -33,7 +31,7 @@ export class InstacartAPIRequest {
 
     try {
       const data = await this.setupRequest(
-        this.pickUplocationV3,
+        InstacartV3Urls.PICKUP_LOCATIONS,
         HTTPMethod.GET,
         null
       );
