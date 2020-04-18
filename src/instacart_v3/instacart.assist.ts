@@ -1,9 +1,6 @@
 import { InstacartAPIRequest } from './api/instacart.api.request';
 import { InstacartAuthApi } from './api/instacartAuth.api.request';
-import {
-  IPickupLocation,
-  IFilteredPickupLocation,
-} from './types/pickupLocation.interface';
+import { IPickupLocation, IFilteredPickupLocation } from './types/pickup.types';
 
 class InstacartAssitV3 {
   private instacartApi: InstacartAPIRequest;
