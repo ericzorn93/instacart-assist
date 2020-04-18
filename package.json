@@ -31,7 +31,11 @@
     "trailingComma": "es5"
   },
   "name": "instacart-assist",
-  "author": "Eric Zorn",
+  "author": {
+    "name": "Eric Zorn",
+    "email": "zornwebdev@gmail.com",
+    "url": "https://github.com/ericzorn93"
+  },
   "module": "dist/instacart-assist.esm.js",
   "devDependencies": {
     "@types/axios": "^0.14.0",
