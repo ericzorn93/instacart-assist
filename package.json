@@ -15,7 +15,8 @@
     "build": "tsdx build",
     "test": "tsdx test",
     "lint": "tsdx lint",
-    "prepare": "tsdx build"
+    "prepare": "tsdx build",
+    "postversion": "npm run lint; npm run lint; npm run test; npm run build; git push; git push origin --tags"
   },
   "peerDependencies": {},
   "husky": {
