@@ -2902,6 +2902,11 @@ html-escaper@^2.0.0:
   resolved "https://registry.yarnpkg.com/html-escaper/-/html-escaper-2.0.2.tgz#dfd60027da36a36dfcbe236262c00a5822681453"
   integrity sha512-H2iMtd0I4Mt5eYiapRdIDjp+XzelXQ0tFE4JS7YFwFevXXMmOp9myNrUvCg0D6ws8iqkRPBfKHgbwig1SmlLfg==
 
+http-method-enum@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/http-method-enum/-/http-method-enum-1.0.0.tgz#fb55ba68320d3c5f6b76991087e16b25c1415a92"
+  integrity sha512-WJEWwPxQKdKg0OzNJd4oStz+2CCsLcQVrAjbc6rp2MxRRJKZebfEkIKeM63d8bi5RWE4fgnp3hOE5fJfxZRmXA==
+
 http-signature@~1.2.0:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/http-signature/-/http-signature-1.2.0.tgz#9aecd925114772f3d95b65a60abb8f7c18fbace1"

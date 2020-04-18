@@ -42,6 +42,7 @@
   },
   "dependencies": {
     "axios": "^0.19.2",
-    "cookie": "^0.4.0"
+    "cookie": "^0.4.0",
+    "http-method-enum": "^1.0.0"
   }
 }
