@@ -46,6 +46,21 @@ export class InstacartAPIRequest {
 
   /**
    * @description
+   * Recieves list of filtered delivery locations
+   * TODO: Fix the distance by miles
+   * @returns {Promise<IRetailer[]>} List of all delivery locations from Instacart Address Supplied
+   */
+  public async getAllDeliveryLocations() {
+    const allLocations = await this.getAllRetailLocations();
+    const deliveryLocations = allLocations.filter(location =>
+      location.services.includes('delivery')
+    );
+
+    return deliveryLocations;
+  }
+
+  /**
+   * @description
    * Recieves an array of all available stores, based on the user's account location
    * @returns {AxiosResponse<any>} List of all Stores
    */

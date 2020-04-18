@@ -1,7 +1,7 @@
 import { InstacartAPIRequest } from './api/instacart.api.request';
 import { InstacartAuthApi } from './api/instacartAuth.api.request';
 import { IPickupLocation, IFilteredPickupLocation } from './types/pickup.types';
-import { IFilteredRetailer } from './types/allRetailer.types';
+import { IFilteredRetailer, IRetailer } from './types/allRetailer.types';
 
 class InstacartAssitV3 {
   private instacartApi: InstacartAPIRequest;
@@ -52,6 +52,18 @@ class InstacartAssitV3 {
     );
 
     return filteredRetailers;
+  }
+
+  /**
+   * @description
+   * Recieves list of filtered delivery locations
+   * TODO: Fix the distance by miles
+   * @returns {Promise<IRetailer[]>} List of all delivery locations from Instacart Address Supplied
+   */
+  public async getAllDeliveryLocations(): Promise<IRetailer[]> {
+    const response = await this.instacartApi.getAllDeliveryLocations();
+
+    return response;
   }
 
   /**
