@@ -1,6 +1,7 @@
 import { InstacartAPIRequest } from './api/instacart.api.request';
 import { InstacartAuthApi } from './api/instacartAuth.api.request';
 import { IPickupLocation, IFilteredPickupLocation } from './types/pickup.types';
+import { IFilteredRetailer } from './types/allRetailer.types';
 
 class InstacartAssitV3 {
   private instacartApi: InstacartAPIRequest;
@@ -19,15 +20,48 @@ class InstacartAssitV3 {
 
   /**
    * @description
+   * Fetches and retrieves a list of all available retailers in the user's area
+   * @returns {Promise<IFilteredRetailer[]>} List of all filtered retailers
+   */
+  public async getAllRetailers(): Promise<IFilteredRetailer[]> {
+    const retailerData = await this.instacartApi.getAllRetailLocations();
+    const filteredRetailers: IFilteredRetailer[] = retailerData.map(
+      retailer => {
+        const {
+          id,
+          name,
+          slug,
+          logo,
+          services,
+          categories_formatted_text,
+          retailer_type,
+        } = retailer;
+
+        return {
+          id,
+          name,
+          slug,
+          logoUrl: logo.url ?? null,
+          services,
+          categories: categories_formatted_text.strings.map(cat =>
+            cat.value.toLocaleLowerCase()
+          ),
+          retailerGenre: retailer_type.toLocaleLowerCase(),
+        };
+      }
+    );
+
+    return filteredRetailers;
+  }
+
+  /**
+   * @description
    * Fetches a list of stores in your area, based on your current location.
    * Your location is fetched from instacart
    * @param {Number} milesRadius Number of Stores in the surrounding radius
    * @returns {Promise<any>} List of local stores
    */
   public async getAllPickupLocations(milesRadius?: number) {
-    if (!this.instacartApi) {
-      return;
-    }
     const response = await this.instacartApi.getAllPickupLocations();
     const { guess_zip, pickup_locations: pickupLocations = [] } = response;
 
@@ -71,9 +105,10 @@ class InstacartAssitV3 {
         };
       });
 
+    // Assign locations to data
     data.locations = [...filteredLocations];
 
-    return { data, milesRadius };
+    return data;
   }
 }
 
