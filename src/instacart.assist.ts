@@ -4,6 +4,13 @@ import { InstacartAuthApi } from './api/instacartAuth.api.request';
 class InstacartAssit {
   private instacartApi: InstacartAPIRequest;
 
+  /**
+   * @description
+   * Please enter your Instacart credentials that are not OAUTH compatible (FB, Google).
+   * Oauth is coming soon.
+   * @param {String} emailAddress User's Instacart Email Address
+   * @param {String} password User's Instacart Password
+   */
   constructor(emailAddress: string, password: string) {
     const instacartAuthApi = new InstacartAuthApi(emailAddress, password);
     this.instacartApi = new InstacartAPIRequest(instacartAuthApi);
